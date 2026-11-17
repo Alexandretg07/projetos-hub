@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gala Bola de Ouro 2026</title>
+    <style>
+        :root {
+            --bg-dark: #050505;
+            --bg-card: #151515;
+            --gold-light: #f9d976;
+            --gold-main: #d4af37;
+            --gold-dark: #aa8623;
+            --text-main: #f0f0f0;
+            --text-muted: #a0a0a0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', 'Segoe UI', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navbar Fixa */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(5, 5, 5, 0.95);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #222;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        nav .logo {
+            color: var(--gold-main);
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--gold-main);
+        }
+
+        /* Hero Banner */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(5,5,5,1)), 
+                        url('https://images.unsplash.com/photo-1518605368461-1ee7e52b71ab?auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+            margin-top: 0;
+        }
+
+        .hero h1 {
+            color: var(--gold-light);
+            font-size: 4.5rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--gold-main);
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Grid de Destaques */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+            transition: all 0.4s ease;
+            position: relative;
+            border: 1px solid #222;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold-main);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--gold-dark);
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .card-tag {
+            background-color: rgba(212, 175, 55, 0.1);
+            color: var(--gold-light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Tabela Estilizada */
+        .table-wrapper {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            overflow-x: auto;
+            border: 1px solid #222;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 1.2rem;
+            border-bottom: 1px solid #333;
+        }
+
+        th {
+            color: var(--gold-main);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background-color: #1a1a1a;
+        }
+
+        .highlight {
+            color: var(--gold-light);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #020202;
+            text-align: center;
+            padding: 3rem;
+            border-top: 1px solid #222;
+        }
+
+        footer p {
+            color: var(--text-muted);
+        }
+
+        footer span {
+            color: var(--gold-main);
+        }
+
+        /* Animações */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Ballon d'Or</div>
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#vencedores">Vencedores</a></li>
+            <li><a href="#categorias">Categorias</a></li>
+        </ul>
+    </nav>
+
+    <header id="inicio" class="hero">
+        <h1>Gala 2026</h1>
+        <p>A noite mágica em Londres que coroou os novos monarcas do futebol mundial.</p>
+    </header>
+
+    <main class="container">
+        
+        <section id="vencedores" style="margin-bottom: 6rem;">
+            <h2 class="section-title">Grandes Destaques</h2>
+            <div class="grid-cards">
+                
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=800&q=80" alt="Jogador Masculino">
+                    <div class="card-body">
+                        <span class="card-tag">Bola de Ouro Masculina</span>
+                        <h3>Harry Kane</h3>
+                        <p>O atacante do Bayern de Munique fez história ao se tornar o primeiro jogador inglês em 25 anos a conquistar o prêmio, coroando uma temporada de artilharia impecável.</p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=800&q=80" alt="Jogadora Feminina">
+                    <div class="card-body">
+                        <span class="card-tag">Bola de Ouro Feminina</span>
+                        <h3>Alexia Putellas</h3>
+                        <p>A craque do Barcelona reafirmou sua majestade. Após superar desafios, liderou seu clube à glória europeia e eternizou seu nome com mais uma estatueta dourada.</p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section id="categorias">
+            <h2 class="section-title">Lista Completa de Premiações</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Prêmio</th>
+                            <th>Vencedor(a)</th>
+                            <th>Clube / Representação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Bola de Ouro Masculina</td>
+                            <td class="highlight">Harry Kane</td>
+                            <td>Bayern de Munique / Inglaterra</td>
+                        </tr>
+                        <tr>
+                            <td>Bola de Ouro Feminina</td>
+                            <td class="highlight">Alexia Putellas</td>
+                            <td>FC Barcelona / Espanha</td>
+                        </tr>
+                        <tr>
+                            <td>Troféu Yashin (Goleiro)</td>
+                            <td>Unai Simón</td>
+                            <td>Athletic Club / Espanha</td>
+                        </tr>
+                        <tr>
+                            <td>Melhor Goleira</td>
+                            <td>Cata Coll</td>
+                            <td>FC Barcelona / Espanha</td>
+                        </tr>
+                        <tr>
+                            <td>Troféu Kopa (Sub-21)</td>
+                            <td>Lamine Yamal</td>
+                            <td>FC Barcelona / Espanha</td>
+                        </tr>
+                        <tr>
+                            <td>Treinador do Ano</td>
+                            <td>Luis de la Fuente</td>
+                            <td>Seleção Espanhola</td>
+                        </tr>
+                        <tr>
+                            <td>Clube do Ano (M)</td>
+                            <td>Paris Saint-Germain</td>
+                            <td>França</td>
+                        </tr>
+                        <tr>
+                            <td>Clube do Ano (F)</td>
+                            <td>FC Barcelona</td>
+                            <td>Espanha</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Desenvolvido para o Módulo III de <span>Sistemas Web</span>.</p>
+    </footer>
+
+</body>
+</html>
